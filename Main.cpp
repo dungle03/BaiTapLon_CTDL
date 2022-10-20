@@ -157,3 +157,8 @@ void UpdateStudent(vector<Student> &newMyClass)
 {
     
 }
+
+void DeleteStudent(vector<Student> &newMyClass)
+{
+
+}
