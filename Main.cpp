@@ -152,3 +152,8 @@ void pressAnyKey()
     getchar();
     system("cls");
 }
+
+void UpdateStudent(vector<Student> &newMyClass)
+{
+    
+}
