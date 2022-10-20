@@ -3,7 +3,7 @@
 #include <math.h>
 #include <algorithm>
 #include <vector>
-#include <stdlib.h>
+#include <conio.h>
 
 #include "Student.cpp"
 
@@ -40,7 +40,6 @@ int main()
         cout << "*******************************************************\n";
         cout << "Nhap tuy chon: ";
         cin >> key;
-        system("cls");
 
         switch (key)
         {
@@ -53,6 +52,7 @@ int main()
                 cin >> check;
             } while (check == 'c');
 
+            pressAnyKey();
             break;
 
         case 2:
@@ -60,18 +60,22 @@ int main()
             int MSV;
             cin >> MSV;
 
+            pressAnyKey();
             break;
 
         case 3:
             cout << "3. Xoa sinh vien boi MSV: " << endl;
+            pressAnyKey();
             break;
 
         case 4:
             cout << "4. Tim kiem sinh vien theo ten: " << endl;
+            pressAnyKey();
             break;
 
         case 5:
             cout << "5. Sap xep sinh vien theo ten: " << endl;
+            pressAnyKey();
             break;
 
         case 6:
@@ -80,25 +84,22 @@ int main()
             {
                 cout << "Danh sach khong co sinh vien nao !!" << endl;
             }
-
             PrintStudent(myClass);
+            pressAnyKey();
             break;
         case 0:
             system("cls");
             is_quit = true;
             cout << "Cam on ban da su dung chuong trinh <3" << endl;
-            system("pause");
+            getch();
             break;
 
         default:
             cout << "\nKhong co chuc nang nay!";
             cout << "\nHay chon chuc nang trong hop menu.";
+            pressAnyKey();
             break;
 
-            if (key != 0)
-            {
-                pressAnyKey();
-            }
         }
     }
     return 0;
@@ -147,9 +148,8 @@ void PrintStudent(vector<Student> &newMyClass)
 
 void pressAnyKey()
 {
-    cout << "Nhap phim bat ki de tiep tuc !" << endl;
-    fflush(stdin);
-    getchar();
+    cout << "\n\nBam phim bat ky de tiep tuc...";
+    getch();
     system("cls");
 }
 
