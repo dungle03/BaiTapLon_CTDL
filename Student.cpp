@@ -4,8 +4,6 @@
 
 using namespace std;
 
-// Default Constructor
-
 Student::Student()
 {
     Id = 0;
@@ -18,8 +16,6 @@ Student::Student()
     Class = "";
 }
 
-// Overload Constructor
-
 Student::Student(int new_Id, int new_d, int new_m, int new_y, string new_Name, string new_Sex, string new_Class)
 {
     Id = new_Id;
@@ -31,13 +27,11 @@ Student::Student(int new_Id, int new_d, int new_m, int new_y, string new_Name, s
     Class = new_Class;
 }
 
-// Destructor
 
 Student::~Student()
 {
 }
 
-// Accessor Functions
 
 int Student::get_Id()
 {

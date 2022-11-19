@@ -14,16 +14,11 @@ private:
     string Name, Sex, Class;
 
 public:
-    // Default Constructor
     Student();
 
-    // Overload Constructor
     Student(int, int, int, int, string, string, string);
 
-    // Destructor
     ~Student();
-
-    // Accessor Functions
 
     int get_Id();
     int get_d();
@@ -33,8 +28,6 @@ public:
     string get_Name();
     string get_Sex();
     string get_Class();
-
-    // Mutator Constructor
 
     void set_Id(int);
     void set_d(int);
@@ -47,3 +40,4 @@ public:
 };
 
 #endif
+

@@ -6,21 +6,15 @@
 #include <conio.h>
 
 #include "Student.cpp"
+#include "ManageStudent.cpp"
 
 using namespace std;
-
-void InputStudent(vector<Student> &);
-void UpdateStudent(vector<Student> &);
-void DeleteStudent(vector<Student> &);
-void FindStudent(vector<Student> &);
-void SortStudent(vector<Student> &);
-void PrintStudent(vector<Student> &);
 
 void pressAnyKey();
 
 int main()
 {
-    vector<Student> myClass;
+    ManageStudent myClass;
     int key;
     char check = 'c';
 
@@ -47,7 +41,7 @@ int main()
             do
             {
                 cout << "1. Them sinh vien: " << endl;
-                InputStudent(myClass);
+                myClass.InputStudent();
                 cout << "Ban co muon nhap them sinh vien khong ? (c/k): ";
                 cin >> check;
             } while (check == 'c');
@@ -57,14 +51,20 @@ int main()
 
         case 2:
             cout << "2. Cap nhat thong tin sinh vien boi MSV : " << endl;
-            int MSV;
-            cin >> MSV;
-
+            myClass.UpdateStudent();
             pressAnyKey();
             break;
 
         case 3:
             cout << "3. Xoa sinh vien boi MSV: " << endl;
+            if (myClass.ClassSize() == 0)
+            {
+                cout << "Danh sach khong co sinh vien nao !!" << endl;
+            }
+            else
+            {
+                myClass.DeleteStudent();
+            }
             pressAnyKey();
             break;
 
@@ -80,11 +80,11 @@ int main()
 
         case 6:
             cout << "6. Hien thi danh sach sinh vien: " << endl;
-            if (myClass.empty())
+            if (myClass.ClassSize() == 0)
             {
                 cout << "Danh sach khong co sinh vien nao !!" << endl;
             }
-            PrintStudent(myClass);
+            myClass.PrintStudent();
             pressAnyKey();
             break;
         case 0:
@@ -96,54 +96,12 @@ int main()
 
         default:
             cout << "\nKhong co chuc nang nay!";
-            cout << "\nHay chon chuc nang trong hop menu.";
+            cout << "\nHay chon dung chuc nang trong menu.";
             pressAnyKey();
             break;
-
         }
     }
     return 0;
-}
-
-void InputStudent(vector<Student> &newMyClass)
-{
-
-    int Id, d, m, y;
-    string Name, Sex, Class;
-
-    cout << "MSV: " << endl;
-    cin >> Id;
-    cout << "Ngay thang nam sinh (VD: 1/1/1990 dien 01 01 1990): " << endl;
-    cin >> d >> m >> y;
-    cout << "Ho va ten: " << endl;
-    fflush(stdin);
-    getline(cin, Name);
-    cout << "Gioi tinh: " << endl;
-    getline(cin, Sex);
-    cout << "Lop (VD: CNTT3): " << endl;
-    getline(cin, Class);
-
-    Student newStudent(Id, d, m, y, Name, Sex, Class);
-    newMyClass.push_back(newStudent);
-    cout << endl;
-}
-
-void PrintStudent(vector<Student> &newMyClass)
-{
-    unsigned int n = newMyClass.size();
-
-    for (unsigned int i = 0; i < n; i++)
-    {
-        cout << newMyClass[i].get_Id() << " | ";
-        cout << newMyClass[i].get_Name() << " | ";
-        cout << newMyClass[i].get_d() << "/";
-        cout << newMyClass[i].get_m() << "/";
-        cout << newMyClass[i].get_y() << " | ";
-        cout << newMyClass[i].get_Sex() << " | ";
-        cout << newMyClass[i].get_Class() << endl;
-
-        cout << endl;
-    }
 }
 
 void pressAnyKey()
@@ -151,14 +109,4 @@ void pressAnyKey()
     cout << "\n\nBam phim bat ky de tiep tuc...";
     getch();
     system("cls");
-}
-
-void UpdateStudent(vector<Student> &newMyClass)
-{
-    
-}
-
-void DeleteStudent(vector<Student> &newMyClass)
-{
-
 }
