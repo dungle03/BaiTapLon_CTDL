@@ -37,6 +37,7 @@ public:
     void set_Name(string);
     void set_Sex(string);
     void set_Class(string);
+    
 };
 
 #endif

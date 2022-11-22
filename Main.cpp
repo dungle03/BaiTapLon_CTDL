@@ -42,6 +42,9 @@ int main()
             {
                 cout << "1. Them sinh vien: " << endl;
                 myClass.InputStudent();
+                if(myClass.Check() == 0){
+                	cout<<"Da nhap trung MSV!"<<endl;
+                }
                 cout << "Ban co muon nhap them sinh vien khong ? (c/k): ";
                 cin >> check;
             } while (check == 'c');
@@ -75,6 +78,7 @@ int main()
 
         case 5:
             cout << "5. Sap xep sinh vien theo ten: " << endl;
+//            SortStudent(myClass, 0, myClass.ClassSize() - 1);
             pressAnyKey();
             break;
 
