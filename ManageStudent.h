@@ -21,16 +21,17 @@ class ManageStudent
         int ClassSize();
         int isEmpty();
 		
-		bool Check();
+		//bool Check();
         void InputStudent();
         void UpdateStudent();
-        void DeleteStudent();
+        void DeleteStudent(int msv);
         Student& FindStudent(int Id);
-        void friend SortStudent(vector<Student> myClass, int left, int right);
+        void SortStudent(vector<Student> myClass, int left, int right);
         void PrintStudent();
-        vector<Student> getElem(){
-        	return myClass;
-		}
+
+        // vector<Student> getElem(){
+        // 	return myClass;
+		// }
 };
 
 #endif

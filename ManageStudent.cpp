@@ -15,16 +15,22 @@ ManageStudent ::ManageStudent(vector<Student> myClass)
     myClass = myClass;
 }
 
-bool ManageStudent :: Check()
-{
-	unsigned int n = myClass.size();  
-	for(int i=0; i<n; i++){
-		if(myClass[i].get_Id() == myClass[i+1].get_Id()){
-		return false;
-		}
-	}
-	return true;
-}
+// bool ManageStudent ::Check()
+// {
+//     unsigned int n = myClass.size();
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = 1; j < n; j++)
+//         {
+//             if (myClass[i].get_Id() == myClass[j].get_Id())
+//             {
+//                 myClass.erase(myClass.end());
+//                 return false;
+//             }
+//         }
+//     }
+//     return true;
+// }
 
 int ManageStudent ::ClassSize()
 {
@@ -47,9 +53,9 @@ void ManageStudent ::InputStudent()
     getline(cin, Sex);
     cout << "Lop (VD: CNTT3): " << endl;
     getline(cin, Class);
-	
+
     Student newStudent(Id, d, m, y, Name, Sex, Class);
-    
+
     myClass.push_back(newStudent);
     cout << endl;
 }
@@ -100,12 +106,8 @@ void ManageStudent ::UpdateStudent()
     }
 }
 
-void ManageStudent ::DeleteStudent()
+void ManageStudent ::DeleteStudent(int msv)
 {
-    int msv;
-    cout << "Nhap ma sinh vien can xoa: ";
-    cin >> msv;
-
     unsigned int n = myClass.size();
 
     for (int i = 0; i < n; i++)
@@ -121,33 +123,41 @@ void ManageStudent ::DeleteStudent()
 }
 
 Student &FindStudent(int Id);
-void swap(vector<Student> &a, vector<Student> &b){
-	vector<Student> t = a;
-	a = b;
-	b = t;
+
+void swap(vector<Student> &a, vector<Student> &b)
+{
+    vector<Student> t = a;
+    a = b;
+    b = t;
 }
-int partition(vector<Student> &myClass, int left, int right){
-	string pivot = myClass[right].get_Name();
-	int l = left;
-	int r = right -1;
-	while(true){
-		while(l <= r && myClass[l].get_Name() < pivot) l++;
-		while(r >= l && myClass[r].get_Name() > pivot) r--;
-		if(l >= r) break;
-		swap(myClass[l], myClass[r]);
-		l++;
-		r--;
-	}
-	swap(myClass[l], myClass[right]);
-	return l; 
+int partition(vector<Student> &myClass, int left, int right)
+{
+    string pivot = myClass[right].get_Name();
+    int l = left;
+    int r = right - 1;
+    while (true)
+    {
+        while (l <= r && myClass[l].get_Name() < pivot)
+            l++;
+        while (r >= l && myClass[r].get_Name() > pivot)
+            r--;
+        if (l >= r)
+            break;
+        swap(myClass[l], myClass[r]);
+        l++;
+        r--;
+    }
+    swap(myClass[l], myClass[right]);
+    return l;
 }
 void SortStudent(vector<Student> myClass, int left, int right)
 {
- 	if(left<right){
- 		int p = partition(myClass, left, right);
-		SortStudent(myClass,left,p-1);
-		SortStudent(myClass,p+1,right);	
-	}
+    if (left < right)
+    {
+        int p = partition(myClass, left, right);
+        SortStudent(myClass, left, p - 1);
+        SortStudent(myClass, p + 1, right);
+    }
 }
 
 void ManageStudent ::PrintStudent()
@@ -167,4 +177,3 @@ void ManageStudent ::PrintStudent()
         cout << endl;
     }
 }
-
