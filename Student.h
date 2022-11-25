@@ -1,10 +1,7 @@
-// Header
-
 #ifndef STUDENT_H
 #define STUDENT_H
 
-//#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Student
@@ -40,4 +37,3 @@ public:
 };
 
 #endif
-
