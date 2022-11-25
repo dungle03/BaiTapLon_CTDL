@@ -1,5 +1,3 @@
-// Header
-
 #ifndef MANAGESTUDENT_H
 #define MANAGESTUDENT_H
 

@@ -1,5 +1,3 @@
-// Header
-
 #ifndef STUDENT_H
 #define STUDENT_H
 
