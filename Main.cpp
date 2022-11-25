@@ -1,8 +1,4 @@
-#include <iostream>
-#include <string>
-#include <math.h>
-#include <algorithm>
-#include <vector>
+#include <bits/stdc++.h>
 #include <conio.h>
 
 #include "Student.cpp"
@@ -38,6 +34,7 @@ int main()
         switch (key)
         {
         case 1:
+        {
             do
             {
                 cout << "1. Them sinh vien: " << endl;
@@ -48,14 +45,17 @@ int main()
 
             pressAnyKey();
             break;
-
+        }
         case 2:
+        {
             cout << "2. Cap nhat thong tin sinh vien boi MSV : " << endl;
             myClass.UpdateStudent();
             pressAnyKey();
             break;
+        }
 
         case 3:
+        {
             cout << "3. Xoa sinh vien boi MSV: " << endl;
             if (myClass.ClassSize() == 0)
             {
@@ -70,19 +70,33 @@ int main()
             }
             pressAnyKey();
             break;
+        }
 
         case 4:
-            cout << "4. Tim kiem sinh vien theo ten: " << endl;
+        {
+            cout << "4. Tim kiem sinh vien theo ten (BinarySearch): " << endl;
+            myClass.SortStudent(0, myClass.ClassSize() - 1);
+
+            string x;
+            cout << "Nhap ten sinh vien can tim: ";
+            fflush(stdin);
+            getline(cin, x);
+            myClass.FindStudent(x);
             pressAnyKey();
             break;
+        }
 
         case 5:
+        {
             cout << "5. Sap xep sinh vien theo ten: " << endl;
-            myClass.SortStudent(myClass, 0, myClass.ClassSize() - 1);
+            myClass.SortStudent(0, myClass.ClassSize() - 1);
+            cout << "Sap xep danh sach sinh vien thanh cong (QuickSort) !!!" << endl;
+            myClass.PrintStudent();
             pressAnyKey();
             break;
-
+        }
         case 6:
+        {
             cout << "6. Hien thi danh sach sinh vien: " << endl;
             if (myClass.ClassSize() == 0)
             {
@@ -91,18 +105,25 @@ int main()
             myClass.PrintStudent();
             pressAnyKey();
             break;
+        }
+
         case 0:
+        {
             system("cls");
             is_quit = true;
             cout << "Cam on ban da su dung chuong trinh <3" << endl;
             getch();
+            system("cls");
             break;
+        }
 
         default:
+        {
             cout << "\nKhong co chuc nang nay!";
             cout << "\nHay chon dung chuc nang trong menu.";
             pressAnyKey();
             break;
+        }
         }
     }
     return 0;
@@ -110,7 +131,7 @@ int main()
 
 void pressAnyKey()
 {
-    cout << "\n\nBam phim bat ky de tiep tuc...";
+    cout << "\nBam phim bat ky de tiep tuc...";
     getch();
     system("cls");
 }

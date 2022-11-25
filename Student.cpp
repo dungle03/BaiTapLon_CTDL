@@ -1,6 +1,5 @@
+#include <bits/stdc++.h>
 #include "Student.h"
-#include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -27,11 +26,9 @@ Student::Student(int new_Id, int new_d, int new_m, int new_y, string new_Name, s
     Class = new_Class;
 }
 
-
 Student::~Student()
 {
 }
-
 
 int Student::get_Id()
 {
